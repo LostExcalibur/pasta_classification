@@ -121,14 +121,14 @@ def build_model(hp):
     model.compile(
         optimizer=optimizers.Adam(learning_rate=learning_rate),
         loss="sparse_categorical_crossentropy",
-        metrics=["accuracy", "val_accuracy"],
+        metrics=["accuracy"],
     )
     return model
 
 
 # %%
 tuner = RandomSearch(
-    build_model, objective="val_accuracy", max_trials=5, overwrite=True
+    build_model, objective="val_accuracy", max_trials=4, overwrite=True
 )
 tuner.search_space_summary()
 
