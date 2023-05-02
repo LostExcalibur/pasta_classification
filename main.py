@@ -16,6 +16,7 @@ def load_image(path: str):
 
 # %%
 labels = os.listdir("dataset/")
+print(labels)
 
 
 # %%
