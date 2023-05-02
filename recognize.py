@@ -2,12 +2,18 @@ import tensorflow as tf
 import os
 import numpy as np
 from PIL import Image
+import copy
 
+def load_image(path: str):
+    return np.array(Image.open(path).convert("RGB"))
 
 labels = os.listdir("dataset/")
 
-model = tf.saved_model.load("models/first_try")
+model = tf.keras.models.load_model("models/first_try")
 
-image = np.array(Image.open("Image_test_à_définir.png"))
+model.summary()
 
-print(labels[model.predict(image)])
+image = load_image("dataset/penne/chicken-penne-pasta_resized.png").reshape(1, 256, 256, 3)
+
+
+print(model.predict(image))
