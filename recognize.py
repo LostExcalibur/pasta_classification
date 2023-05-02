@@ -10,7 +10,7 @@ def load_image(path: str):
     return np.array(Image.open(path).convert("RGB"))
 
 
-labels = os.listdir("dataset/")
+labels = sorted(os.listdir("dataset/"))
 
 model: tf.keras.models.Sequential = tf.keras.models.load_model("models/first_try")
 
