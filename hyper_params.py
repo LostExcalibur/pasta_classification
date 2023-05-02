@@ -128,7 +128,7 @@ def build_model(hp):
 
 # %%
 tuner = RandomSearch(
-    build_model, objective="val_accuracy", max_trials=4, overwrite=True
+    build_model, objective="val_accuracy", max_trials=5, overwrite=True
 )
 tuner.search_space_summary()
 
