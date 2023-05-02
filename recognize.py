@@ -1,6 +1,8 @@
 import copy
 import os
 
+from sys import argv
+
 import numpy as np
 import tensorflow as tf
 from PIL import Image
@@ -16,6 +18,7 @@ model: tf.keras.models.Sequential = tf.keras.models.load_model("models/first_try
 
 model.summary()
 
-image = load_image("alois.png").reshape(1, 256, 256, 3)
+filename = argv[1] if len(argv) > 1 else "alois.png"
+image = load_image(filename).reshape(1, 256, 256, 3)
 
-print(labels[np.argmax(model.predict(image))])
+print(f"{filename} has been recognized as a {labels[np.argmax(model.predict(image))]}")
