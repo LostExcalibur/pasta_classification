@@ -1,0 +1,3 @@
+[submodule "pasta_dataset"]
+	path = pasta_dataset
+	url = git@github.com:LostExcalibur/pasta_dataset.git
